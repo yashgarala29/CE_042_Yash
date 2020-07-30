@@ -1,0 +1,13 @@
+E:\SEM 5\WDDN\LAB1\HelloWorld_LAB1\bin\Debug\netcoreapp3.1\HelloWorld_LAB1.exe
+E:\SEM 5\WDDN\LAB1\HelloWorld_LAB1\bin\Debug\netcoreapp3.1\HelloWorld_LAB1.deps.json
+E:\SEM 5\WDDN\LAB1\HelloWorld_LAB1\bin\Debug\netcoreapp3.1\HelloWorld_LAB1.runtimeconfig.json
+E:\SEM 5\WDDN\LAB1\HelloWorld_LAB1\bin\Debug\netcoreapp3.1\HelloWorld_LAB1.runtimeconfig.dev.json
+E:\SEM 5\WDDN\LAB1\HelloWorld_LAB1\bin\Debug\netcoreapp3.1\HelloWorld_LAB1.dll
+E:\SEM 5\WDDN\LAB1\HelloWorld_LAB1\bin\Debug\netcoreapp3.1\HelloWorld_LAB1.pdb
+E:\SEM 5\WDDN\LAB1\HelloWorld_LAB1\obj\Debug\netcoreapp3.1\HelloWorld_LAB1.csprojAssemblyReference.cache
+E:\SEM 5\WDDN\LAB1\HelloWorld_LAB1\obj\Debug\netcoreapp3.1\HelloWorld_LAB1.AssemblyInfoInputs.cache
+E:\SEM 5\WDDN\LAB1\HelloWorld_LAB1\obj\Debug\netcoreapp3.1\HelloWorld_LAB1.AssemblyInfo.cs
+E:\SEM 5\WDDN\LAB1\HelloWorld_LAB1\obj\Debug\netcoreapp3.1\HelloWorld_LAB1.csproj.CoreCompileInputs.cache
+E:\SEM 5\WDDN\LAB1\HelloWorld_LAB1\obj\Debug\netcoreapp3.1\HelloWorld_LAB1.dll
+E:\SEM 5\WDDN\LAB1\HelloWorld_LAB1\obj\Debug\netcoreapp3.1\HelloWorld_LAB1.pdb
+E:\SEM 5\WDDN\LAB1\HelloWorld_LAB1\obj\Debug\netcoreapp3.1\HelloWorld_LAB1.genruntimeconfig.cache
