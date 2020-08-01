@@ -1,0 +1,8 @@
+E:\SEM 5\WDDN\LAB4\task1\nuget1\bin\Debug\nuget1.exe.config
+E:\SEM 5\WDDN\LAB4\task1\nuget1\bin\Debug\nuget1.exe
+E:\SEM 5\WDDN\LAB4\task1\nuget1\bin\Debug\nuget1.pdb
+E:\SEM 5\WDDN\LAB4\task1\nuget1\bin\Debug\ce_042_30july.dll
+E:\SEM 5\WDDN\LAB4\task1\nuget1\obj\Debug\nuget1.csproj.CoreCompileInputs.cache
+E:\SEM 5\WDDN\LAB4\task1\nuget1\obj\Debug\nuget1.csproj.CopyComplete
+E:\SEM 5\WDDN\LAB4\task1\nuget1\obj\Debug\nuget1.exe
+E:\SEM 5\WDDN\LAB4\task1\nuget1\obj\Debug\nuget1.pdb
