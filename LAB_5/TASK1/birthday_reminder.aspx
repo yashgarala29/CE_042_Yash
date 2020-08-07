@@ -23,13 +23,9 @@
             <br />
             <asp:Button ID="remember" runat="server" OnClick="remember_Click" Text="remember" />
             &nbsp;&nbsp;&nbsp;
-            <asp:Button ID="delete" runat="server" OnClick="delete_Click" style="margin-left: 8px" Text="delete" Width="152px" />
             <br />
         </div>
-    &nbsp;name=<asp:Label ID="name_l" runat="server"></asp:Label>
-&nbsp;&nbsp;
-        <br />
-        birth date=<asp:Label ID="date" runat="server"></asp:Label>
-    </form>
+    &nbsp;&nbsp;&nbsp;
+        </form>
 </body>
 </html>

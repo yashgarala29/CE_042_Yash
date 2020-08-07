@@ -11,21 +11,8 @@ namespace TASK1
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            HttpCookie httpCookie1 = Request.Cookies["date"];
-            if (httpCookie1!=null)
-            {
-                name_l.Text = httpCookie1["name_c"];
-                date.Text = httpCookie1["date_c"];
-                httpCookie1.Expires = DateTime.Now.AddMinutes(2);
-                Response.Cookies.Add(httpCookie1);
-
-            }
-            else
-            {
-                name_l.Text = null;
-                date.Text = null;
-
-            }
+           
+            
         }
 
         protected void remember_Click(object sender, EventArgs e)
@@ -35,22 +22,14 @@ namespace TASK1
                 HttpCookie httpCookie = new HttpCookie("date");
                 httpCookie["name_c"] = Name.Text; 
                 httpCookie["date_c"] = birthday.Text;
-                 name_l.Text = Name.Text;
-                date.Text = birthday.Text;
+            httpCookie.Expires = DateTime.Now.AddYears(1);
             Response.Cookies.Add(httpCookie);
+            Response.Redirect("show.aspx");
             
                
             
          }
 
-        protected void delete_Click(object sender, EventArgs e)
-        {
-            HttpCookie httpCookie = new HttpCookie("date");
-            httpCookie.Expires =DateTime.Now.AddMinutes(0);
-      
-                Response.Cookies.Add(httpCookie);
-            
-            
-        }
+        
     }
 }
