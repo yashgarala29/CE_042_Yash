@@ -1,0 +1,14 @@
+1). creat strong named assembly
+cmd:- sn-k mykey.snk
+
+2). using mykey.snk creat dll file 
+cmd:-	csc /t:library /keyfile:mykey.snk calc.cs
+
+3). new version of calc.dill
+cmd:-	add this line in new calc.cs file 
+	using System.Reflection;
+	[assembly: AssemblyVersion("1.0.0.0")] 
+
+4).  creat new versio of dll 
+cmd:-  csc /t:library /keyfile:mykey.snk new_calc.cs  
+   gacutil -i new_calc.dll
