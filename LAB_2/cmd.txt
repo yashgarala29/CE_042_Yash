@@ -1,0 +1,7 @@
+creat netmodule file using cmd
+
+csc /t:module filename.cs
+
+
+creat dll file using netmodule 
+csc /t: library /out:calc.dll /addmodule:file1.netmodule /addmodule:file2.netmodule
