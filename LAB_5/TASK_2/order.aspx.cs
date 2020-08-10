@@ -20,10 +20,14 @@ namespace TASK_2
             foreach (var item  in Session)
             {
                 Label l = new Label();
+                int i = 0;
+                if(int.TryParse(Session[item.ToString()].ToString(), out i))
+                { 
                 total+=Int32.Parse(Session[item.ToString()].ToString());
                 l.Text = item.ToString() +"   "+Session[item.ToString()].ToString();
                 form1.Controls.Add(l);
                 form1.Controls.Add(new LiteralControl("<br/>"));
+                }
             }
             price = price + "  " +total;
             total_price.Text = price;
