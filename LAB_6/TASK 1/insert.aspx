@@ -21,8 +21,12 @@
             <asp:TextBox ID="email" runat="server" TextMode="Email"></asp:TextBox>
         </p>
         <p style="margin-left: 40px">
+            MOBILE NO
+            <asp:TextBox ID="mobile" runat="server"></asp:TextBox>
+        </p>
+        <p style="margin-left: 40px">
             <br />
-            <asp:Button ID="add" runat="server" Height="61px" Text="Add Data" Width="258px" />
+            <asp:Button ID="add" runat="server" Height="61px" OnClick="add_Click" Text="Add Data" Width="258px" />
         </p>
     </form>
 </body>

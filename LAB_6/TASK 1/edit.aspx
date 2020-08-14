@@ -10,22 +10,36 @@
     <form id="form1" runat="server">
         <div>
             <p style="margin-left: 40px">
+                ID
+                <asp:TextBox ID="given_id" runat="server"></asp:TextBox>
+            </p>
+            <p style="margin-left: 40px">
+                <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Button" Width="184px" />
+            </p>
+            <p style="margin-left: 40px">
+                &nbsp;</p>
+            <p style="margin-left: 40px">
                 ID&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <asp:TextBox ID="id" runat="server" ReadOnly="True"></asp:TextBox>
             </p>
             <p style="margin-left: 40px">
-                NAME&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <asp:TextBox ID="name" runat="server"></asp:TextBox>
+                NAME&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <asp:TextBox ID="name" runat="server"></asp:TextBox>
             </p>
             <p style="margin-left: 40px">
-                SEM&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <asp:TextBox ID="sem" runat="server" TextMode="Number"></asp:TextBox>
+                SEM&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <asp:TextBox ID="sem" runat="server" TextMode="Number"></asp:TextBox>
             </p>
             <p style="margin-left: 40px">
                 EMAIL ID&nbsp;
                 <asp:TextBox ID="email" runat="server" TextMode="Email"></asp:TextBox>
             </p>
             <p style="margin-left: 40px">
+                MOBILE NO&nbsp;<asp:TextBox ID="mobile_no" runat="server"></asp:TextBox>
+            </p>
+            <p style="margin-left: 40px">
                 <br />
-                <asp:Button ID="show" runat="server" Height="61px" Text="Show Data" Width="258px" />
+                <asp:Button ID="show" runat="server" Height="61px" Text="Update" Width="258px" OnClick="show_Click" />
             </p>
         </div>
     </form>

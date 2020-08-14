@@ -13,7 +13,7 @@
             <asp:TextBox ID="id" runat="server" TextMode="Number"></asp:TextBox>
             <br />
             <br />
-            <asp:Button ID="delet_data" runat="server" Height="68px" Text="Delet_data" Width="218px" />
+            <asp:Button ID="delet_data" runat="server" Height="68px" Text="Delet_data" Width="218px" OnClick="delet_data_Click" />
         </div>
     </form>
 </body>
