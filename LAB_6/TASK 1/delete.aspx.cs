@@ -29,7 +29,19 @@ namespace TASK_1
                     string query = "DELETE FROM Student  WHERE id='" + id.Text + "' ";
                     SqlCommand cmd = new SqlCommand(query, con);
                     con.Open();
-                    cmd.ExecuteNonQuery();
+                    int test=cmd.ExecuteNonQuery();
+                    if(test==0)
+                    {
+                        Label1.Text = "data not found.";
+                        Label1.ForeColor = System.Drawing.Color.Red;
+                    }
+                    else
+                    {
+                        Label1.Text = "data is deleted successfully.";
+                        Label1.ForeColor = System.Drawing.Color.Green;
+
+                    }
+
                 }
                 
             //         con.Close();
@@ -37,6 +49,21 @@ namespace TASK_1
             {
                 Response.Write(err.Message);
             }
+        }
+
+        protected void Button2_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("insert.aspx");
+        }
+
+        protected void Button3_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("edit.aspx");
+        }
+
+        protected void Button4_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("show.aspx");
         }
     }
 }

@@ -9,6 +9,16 @@
 <body>
     <form id="form1" runat="server">
         <p style="margin-left: 40px">
+            <asp:Button ID="Button2" runat="server" OnClick="Button2_Click" Text="Edit  " Width="77px" />
+&nbsp;&nbsp;&nbsp;&nbsp;
+            <asp:Button ID="Button3" runat="server" OnClick="Button3_Click" Text="Delete" />
+&nbsp;&nbsp;&nbsp;
+            <asp:Button ID="Button4" runat="server" OnClick="Button4_Click" Text="Show" />
+        </p>
+        <p style="margin-left: 40px">
+            <asp:Label ID="Label1" runat="server"></asp:Label>
+        </p>
+        <p style="margin-left: 40px">
             NAME&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <asp:TextBox ID="name" runat="server"></asp:TextBox>
         </p>

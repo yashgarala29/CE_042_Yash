@@ -35,6 +35,8 @@ namespace TASK_1
                 con.Open();
                 cmd.ExecuteNonQuery();
                 con.Close();
+                Label1.Text = "data is inserted successfully.";
+                Label1.ForeColor = System.Drawing.Color.Green;
             }
             catch (Exception)
             {
@@ -45,6 +47,21 @@ namespace TASK_1
             //------------------------------------------------------------
              
 
+        }
+
+        protected void Button2_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("edit.aspx");
+        }
+
+        protected void Button3_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("delete.aspx");
+        }
+
+        protected void Button4_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("show.aspx");
         }
     }
 }

@@ -25,12 +25,19 @@ namespace TASK_1
             SqlCommand cmd = new SqlCommand(query, con);
             con.Open();
             SqlDataReader dataReader = cmd.ExecuteReader();
-            dataReader.Read();
-            id.Text= dataReader.GetValue(0).ToString();
-            name.Text=dataReader.GetValue(1).ToString();
-            sem.Text = dataReader.GetValue(2).ToString();
-            mobile_no.Text = dataReader.GetValue(3).ToString();
-            email.Text = dataReader.GetValue(4).ToString();
+            if(dataReader.Read())
+            { 
+                id.Text= dataReader.GetValue(0).ToString();
+                name.Text=dataReader.GetValue(1).ToString();
+                sem.Text = dataReader.GetValue(2).ToString();
+                mobile_no.Text = dataReader.GetValue(3).ToString();
+                email.Text = dataReader.GetValue(4).ToString();
+            }
+            else
+            {
+                Label1.Text = "this id is not found";
+                Label1.ForeColor = System.Drawing.Color.Red;
+            }
         }
 
         protected void show_Click(object sender, EventArgs e)
@@ -52,11 +59,31 @@ namespace TASK_1
             cmd.Parameters.AddWithValue("@2", email_take);
             cmd.Parameters.AddWithValue("@4", id_take);
             con.Open();
-            cmd.ExecuteNonQuery();
+            int status=cmd.ExecuteNonQuery();
+            if(status==1)
+            {
+                Label1.Text = "data is updated successfully";
+                Label1.ForeColor = System.Drawing.Color.Green;
+             }
             con.Close();
             //SqlCommand cmd = new SqlCommand(query, con);
             con.Open();
             //cmd.ExecuteNonQuery();
+        }
+
+        protected void Button2_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("insert.aspx");
+        }
+
+        protected void Button3_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("delete.aspx");
+        }
+
+        protected void Button4_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("show.aspx");
         }
     }
 }

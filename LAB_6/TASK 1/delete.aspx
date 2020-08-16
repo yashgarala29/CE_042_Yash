@@ -9,6 +9,16 @@
 <body>
     <form id="form1" runat="server">
         <div style="margin-left: 40px">
+            <asp:Button ID="Button2" runat="server" OnClick="Button2_Click" Text="Insert" />
+&nbsp;&nbsp;&nbsp;&nbsp;
+            <asp:Button ID="Button3" runat="server" OnClick="Button3_Click" Text="Edit" Width="59px" />
+&nbsp;&nbsp;&nbsp;
+            <asp:Button ID="Button4" runat="server" OnClick="Button4_Click" Text="Show" />
+            <br />
+            <br />
+            <asp:Label ID="Label1" runat="server"></asp:Label>
+            <br />
+            <br />
             ID&nbsp;&nbsp;&nbsp;&nbsp;
             <asp:TextBox ID="id" runat="server" TextMode="Number"></asp:TextBox>
             <br />
