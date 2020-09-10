@@ -56,6 +56,7 @@ namespace TASK_4
                 student.contactno= contacno.Text ;
                 student.emailid= emailid.Text;
                 studentDataContext1.SubmitChanges();
+                
 
             }
         }
