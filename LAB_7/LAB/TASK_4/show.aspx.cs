@@ -11,11 +11,23 @@ namespace TASK_4
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            studentDataContext studentDataContext = new studentDataContext();
-            var student_data = from student1 in studentDataContext.student1s
-                               select student1;
-            GridView1.DataSource = student_data;
-            GridView1.DataBind();
+            //studentDataContext studentDataContext = new studentDataContext();
+            //var student_data = from student1 in studentDataContext.student1s
+            //                   select student1;
+            //GridView1.DataSource = student_data;
+            //GridView1.DataBind();
+        }
+        string s;
+        protected void DetailsView1_PageIndexChanging(object sender, DetailsViewPageEventArgs e)
+        {
+            if(s!=null)
+            {
+
+            }
+        }
+
+        protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
         }
     }
 }
