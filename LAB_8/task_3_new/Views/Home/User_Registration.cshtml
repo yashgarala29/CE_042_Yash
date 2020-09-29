@@ -1,0 +1,111 @@
+﻿
+@{
+    ViewData["Title"] = "User_Registration";
+}
+
+<div class="float-left">
+    <table>
+        <tbody>
+            <tr colspan="2">
+                <td colspan="2">
+                    <div class="text-center">Registation</div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Username
+                </td>
+                <td>
+                    <input type="text" />
+                    @*@Html.TextBox("Username")*@
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Password
+                </td>
+                <td>
+                    <input type="password" />
+                    @*@Html.Password("Password")*@
+                </td>
+            </tr>
+            <tr >
+                <td colspan="2"><input type="submit" /></td>
+            </tr>
+         </tbody>
+    </table>
+    
+</div>
+
+<div class="float-right">
+    <table>
+        <tbody>
+            <tr colspan="2">
+                <td colspan="2">
+                    <div class="text-center">Login</div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Username
+                </td>
+                <td>
+                    <input type="text" />
+                    @*@Html.TextBox("Username")*@
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Password
+                </td>
+                <td>
+                    <input type="password" />
+                    @*@Html.Password("Password")*@
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    re-Password
+                </td>
+                <td>
+                    <input type="password" />
+                    @*@Html.Password("Password")*@
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Gender
+                </td>
+                <td>
+                    
+                    Male <input type="radio" name="gender"/> 
+                    @*@Html.RadioButton("Gender", "Male")*@
+                    Female <input type="radio"  name="gender"/>
+                    @*@Html.RadioButton("Gender", "Female")*@
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Email
+                </td>
+                <td>
+                    <input type="email" />
+                    @*@Html.TextBox("Email", " ", new { type = "email" })*@
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Mobil number
+                </td>
+                <td>
+                    <input type="number" />
+                    @*@Html.TextBox("mo-number", " ", new { type = "number" })*@
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2"><input type="submit" /></td>
+            </tr>
+        </tbody>
+    </table>
+
+</div>

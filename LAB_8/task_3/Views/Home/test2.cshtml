@@ -1,0 +1,23 @@
+﻿
+@{
+    ViewData["Title"] = "test2";
+}
+
+<h1>test2</h1>
+@using (Html.BeginForm("show_ans", "Home", FormMethod.Post))
+{
+    <table>
+        <tr>
+            <td>NUMBER 1: </td>
+            <td>@Html.TextBox("number1")</td>
+        </tr>
+        <tr>
+            <td>NUMBER 2: </td>
+            <td>@Html.TextBox("number2")</td>
+        </tr>
+        <tr>
+            <td colspan="2"><input type="submit" value="Submit"></td>
+        </tr>
+    </table>
+
+}
