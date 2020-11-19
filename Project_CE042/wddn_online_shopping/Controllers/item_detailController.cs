@@ -66,7 +66,7 @@ namespace wddn_online_shopping
             
 
 
-            return RedirectToAction("Index");
+            return RedirectToActionPermanentPreserveMethod(actionName:"index",controllerName:"home");
         }
         // GET: item_detail
         public async Task<IActionResult> Index()
@@ -131,7 +131,8 @@ namespace wddn_online_shopping
                 };
                 _context.item_Details.Add(item);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+
+                return RedirectToActionPermanentPreserveMethod(actionName: "Homepage", controllerName: "sellers");
             }
             return View(item_detail);
         }
@@ -182,7 +183,7 @@ namespace wddn_online_shopping
                         throw;
                     }
                 }
-                return RedirectToAction(nameof(Index));
+                return RedirectToActionPermanentPreserveMethod(actionName: "Homepage", controllerName: "sellers");
             }
             return View(item_detail);
         }
@@ -213,7 +214,8 @@ namespace wddn_online_shopping
             var item_detail = await _context.item_Details.FindAsync(id);
             _context.item_Details.Remove(item_detail);
             await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+            return RedirectToActionPermanentPreserveMethod(actionName: "Homepage", controllerName: "sellers");
+
         }
 
         private bool item_detailExists(int id)

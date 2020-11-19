@@ -1,4 +1,4 @@
-﻿@model wddn_online_shopping.Models.model_class.customer
+﻿@model wddn_online_shopping.view_model.customer_view_model
 
 @{
     ViewData["Title"] = "Create";
@@ -10,7 +10,7 @@
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="Create">
+        <form enctype="multipart/form-data" asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="customer_name" class="control-label"></label>
@@ -42,11 +42,21 @@
                 <textarea asp-for="customer_address" class="form-control"></textarea>
                 <span asp-validation-for="customer_address" class="text-danger"></span>
             </div>
-            <div class="form-group">
+            @*<div class="form-group">
                 <label asp-for="customer_image" class="control-label"></label>
                 <input asp-for="customer_image" class="form-control" />
                 <span asp-validation-for="customer_image" class="text-danger"></span>
+            </div>*@
+            <div class="form-group">
+
+                <label asp-for="customer_image" class="control-label"></label>
+                <div class="custom-file">
+                    <input asp-for="customer_image" class="form-control custom-file-input" />
+                    <label class="custom-file-label">Seller image</label>
+                </div>
+                <span asp-validation-for="customer_image" class="text-danger"></span>
             </div>
+
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
             </div>

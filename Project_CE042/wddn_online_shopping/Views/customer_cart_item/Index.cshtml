@@ -1,29 +1,62 @@
-﻿@model IEnumerable<wddn_online_shopping.Models.model_class.customer_cart_item>
+﻿@model IEnumerable<wddn_online_shopping.Models.model_class.item_detail>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "View";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    String product_image_path;
+    List<wddn_online_shopping.Models.model_class.item_detail> list_cart = ViewBag.produc_in_cart;
 }
 
-<h1>Index</h1>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
+<h1>Your cart</h1>
+
+<h1>Totle price @ViewBag.total_price </h1>
+
 <table class="table">
     <thead>
         <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.product_name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.product_quantity)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.product_description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.product_image)
+            </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
+        @foreach (var item in list_cart)
+        {
         <tr>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.id">Delete</a>
+                @Html.DisplayFor(modelItem => item.product_name)
             </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.product_price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.product_description)
+            </td>
+            <td>
+                @{
+                    product_image_path = "/product_image/" + item.product_image;
+                }
+                <img style="height:100px;height:100px" src="@product_image_path">
+
+            </td>
+            <td>
+                <a asp-action="remove_fro_cart" asp-route-id="@item.product_id">Remove frome cart</a> |
+                </td>
         </tr>
-}
+        }
     </tbody>
 </table>
+<a asp-controller="customer_cart_item" asp-action="placer_order" class="btn btn-success">Placer Order </a>

@@ -1,11 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using wddn_online_shopping.Models.additional_field;
@@ -20,13 +23,15 @@ namespace wddn_online_shopping
         private readonly AppDbContext _context;
         private readonly UserManager<customer_identity> userManager;
         private readonly SignInManager<customer_identity> signInManager;
-        
-        public customersController(UserManager<customer_identity> userManager,
+        private readonly IWebHostEnvironment hostingEnvironment;
+
+        public customersController(IWebHostEnvironment webHostEnvironment, UserManager<customer_identity> userManager,
             SignInManager<customer_identity> signInManager, AppDbContext context)
         {
             _context = context;
             this.userManager = userManager;
             this.signInManager=signInManager;
+            this.hostingEnvironment = webHostEnvironment;
         }
 
         public IActionResult item_detail(int id)
@@ -46,7 +51,25 @@ namespace wddn_online_shopping
         {
             return View();
         }
+        
+        public async Task<RedirectResult> add_to_cart(int id)
+        {
+            int customer_id = (int)HttpContext.Session.GetInt32("customer_id");
+            customer_cart_item customer_Cart_Item = new customer_cart_item
+            {
+                customer_cart_id = customer_id,
+                product_cart_id = id
+            };
+            _context.cart_Items.Add(customer_Cart_Item);
+            
+            await _context.SaveChangesAsync();
 
+
+            string redirect_url = "https://localhost:44326/customers/item_detail/" + id;
+            return Redirect(redirect_url);
+
+            //return View(Response.Redirect(Request.RawUrl));
+        }
         // POST: customers/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
@@ -127,11 +150,20 @@ namespace wddn_online_shopping
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
 
-        public async Task<IActionResult> Create([Bind("customer_id,customer_name,customer_email,customer_password,customer_confirm_password,customer_mobile_no,customer_address,customer_image")] customer customer)
+        public async Task<IActionResult> Create([Bind("customer_id,customer_name,customer_email,customer_password,customer_confirm_password,customer_mobile_no,customer_address,customer_image")] customer_view_model customer)
         {
             String uniqe_filename = null;
             if (ModelState.IsValid)
             {
+                if (customer.customer_image != null)
+                {
+                    string uplodefolder = Path.Combine(hostingEnvironment.WebRootPath, "customer_image");
+                    uniqe_filename = Guid.NewGuid().ToString() + "_" + customer.customer_image.FileName;
+                    String filePath = Path.Combine(uplodefolder, uniqe_filename);
+
+                    customer.customer_image.CopyTo(new FileStream(filePath, FileMode.Create));
+
+                };
                 var user = new customer_identity
                 {
                     customer_email = customer.customer_email,

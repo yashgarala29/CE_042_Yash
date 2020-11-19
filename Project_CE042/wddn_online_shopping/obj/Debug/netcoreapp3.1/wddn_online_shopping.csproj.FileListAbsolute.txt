@@ -217,3 +217,4 @@ E:\SEM 5\WDDN\A WDDN ONLINE SHOPPING\wddn_online_shopping\obj\Debug\netcoreapp3.
 E:\SEM 5\WDDN\A WDDN ONLINE SHOPPING\wddn_online_shopping\obj\Debug\netcoreapp3.1\Razor\Views\customers\order_detail.cshtml.g.cs
 E:\SEM 5\WDDN\A WDDN ONLINE SHOPPING\wddn_online_shopping\obj\Debug\netcoreapp3.1\Razor\Views\customers\order_full_detail.cshtml.g.cs
 E:\SEM 5\WDDN\A WDDN ONLINE SHOPPING\wddn_online_shopping\obj\Debug\netcoreapp3.1\Razor\Views\customers\item_detail.cshtml.g.cs
+E:\SEM 5\WDDN\A WDDN ONLINE SHOPPING\wddn_online_shopping\obj\Debug\netcoreapp3.1\Razor\Views\customer_cart_item\View.cshtml.g.cs

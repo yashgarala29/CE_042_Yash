@@ -47,6 +47,6 @@
 </div>
 <div>
 
-    <a asp-action="add_to_cart" asp-controller="customers" class="btn btn-success">Add to cart</a>
+    <a asp-action="add_to_cart" asp-controller="customers" asp-route-id="@Model.product_id" class="btn btn-success">Add to cart</a>
     <a asp-action="index" asp-controller="home" class="btn btn-success">Back to List</a>
 </div>
