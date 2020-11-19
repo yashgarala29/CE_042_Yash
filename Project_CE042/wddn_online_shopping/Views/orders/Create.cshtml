@@ -1,0 +1,48 @@
+﻿@model wddn_online_shopping.Models.model_class.order
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>order</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="order_date" class="control-label"></label>
+                <input asp-for="order_date" class="form-control" />
+                <span asp-validation-for="order_date" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="order_status" class="control-label"></label>
+                <input asp-for="order_status" class="form-control" />
+                <span asp-validation-for="order_status" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="delivery_date" class="control-label"></label>
+                <input asp-for="delivery_date" class="form-control" />
+                <span asp-validation-for="delivery_date" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="total_pricer" class="control-label"></label>
+                <input asp-for="total_pricer" class="form-control" />
+                <span asp-validation-for="total_pricer" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

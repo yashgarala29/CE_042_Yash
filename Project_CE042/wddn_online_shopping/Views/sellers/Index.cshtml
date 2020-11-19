@@ -1,0 +1,71 @@
+﻿@model IEnumerable<wddn_online_shopping.Models.model_class.seller>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.seller_name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.seller_email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.seller_password)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.seller_confirm_password)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.seller_mobile_no)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.seller_shop_address)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.seller_image)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.seller_name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.seller_email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.seller_password)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.seller_confirm_password)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.seller_mobile_no)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.seller_shop_address)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.seller_image)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.seller_id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.seller_id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.seller_id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

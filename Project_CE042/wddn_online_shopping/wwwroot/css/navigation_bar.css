@@ -1,0 +1,35 @@
+﻿.side-bar1 {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.5s;
+    text-align:center;
+    padding-top: 60px;
+}
+    .side-bar1 .closebtn {
+        position: absolute;
+        top: 0;
+        right: 25px;
+        font-size: 36px;
+        margin-left: 50px;
+    }
+.navbar1 {
+    background-color: rgba(66, 6, 92, 0.91);
+    color: white;
+}
+nav > a ,.nav-link {
+    all: unset;
+    color: white;
+}
+nav > a:hover, .nav-link:hover {
+    color: #09e7e7
+}
+.side-bar{
+    width:25%;
+    height:100%;
+}

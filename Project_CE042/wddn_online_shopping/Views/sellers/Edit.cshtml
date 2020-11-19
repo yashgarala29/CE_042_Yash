@@ -1,0 +1,64 @@
+﻿@model wddn_online_shopping.Models.model_class.seller
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>seller</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="seller_id" />
+            <div class="form-group">
+                <label asp-for="seller_name" class="control-label"></label>
+                <input asp-for="seller_name" class="form-control" />
+                <span asp-validation-for="seller_name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="seller_email" class="control-label"></label>
+                <input asp-for="seller_email" class="form-control" />
+                <span asp-validation-for="seller_email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="seller_password" class="control-label"></label>
+                <input asp-for="seller_password" class="form-control" />
+                <span asp-validation-for="seller_password" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="seller_confirm_password" class="control-label"></label>
+                <input asp-for="seller_confirm_password" class="form-control" />
+                <span asp-validation-for="seller_confirm_password" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="seller_mobile_no" class="control-label"></label>
+                <input asp-for="seller_mobile_no" class="form-control" />
+                <span asp-validation-for="seller_mobile_no" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="seller_shop_address" class="control-label"></label>
+                <textarea asp-for="seller_shop_address" class="form-control"></textarea>
+                <span asp-validation-for="seller_shop_address" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="seller_image" class="control-label"></label>
+                <input asp-for="seller_image" class="form-control" />
+                <span asp-validation-for="seller_image" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

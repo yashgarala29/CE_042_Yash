@@ -1,0 +1,69 @@
+﻿@model wddn_online_shopping.view_model.item_view_model
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout1.cshtml";
+}
+<h1>Create</h1>
+
+<h4>item_detail</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form enctype="multipart/form-data" asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="product_name" class="control-label"></label>
+                <input asp-for="product_name" class="form-control" />
+                <span asp-validation-for="product_name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="product_quantity" class="control-label"></label>
+                <input asp-for="product_quantity" class="form-control" />
+                <span asp-validation-for="product_quantity" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="product_price" class="control-label"></label>
+                <input asp-for="product_price" class="form-control" />
+                <span asp-validation-for="product_price" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="product_description" class="control-label"></label>
+                <textarea asp-for="product_description" class="form-control"></textarea>
+                <span asp-validation-for="product_description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+
+                <label asp-for="product_image" class="control-label"></label>
+                <div class="custom-file">
+                    <input asp-for="product_image" class="form-control custom-file-input" />
+                    <label class="custom-file-label">Product image</label>
+                </div>
+                <span asp-validation-for="product_image" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            $('.custom-file-input').on("change", function () {
+                var filename = $(this).val().split("\\").pop();
+                $(this).next(".custom-file-label").html(filename);
+            });
+
+        });
+    </script>
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

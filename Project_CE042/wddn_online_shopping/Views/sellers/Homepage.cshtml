@@ -1,0 +1,48 @@
+﻿@model IEnumerable<wddn_online_shopping.Models.model_class.item_detail>
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+@{
+    var i = 0;
+    String border_color;
+}
+
+<div class="container">
+    @if (Model != null)
+        @foreach (var item in Model)
+        {
+            var product_image_path = "/product_image/" + item.product_image;
+
+            @if (i % 4 == 0)
+            {
+                <br>
+            }
+            @if (item.product_quantity <= 0)
+            {
+                border_color = "red";
+            }
+            else
+            {
+                border_color = "green";
+            }
+            <div style="display:inline-block;">
+                <div class="card" style="width: 18rem;border: 1px solid @border_color;">
+                    <img class="card-img-top" src="@product_image_path" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">@Html.DisplayFor(modelItem => item.product_name)</h5>
+                        <p class="card-text"> @Html.DisplayNameFor(model => model.product_price) : @Html.DisplayFor(modelItem => item.product_price)</p>
+                        <p class="card-text"> @Html.DisplayNameFor(model => model.product_quantity) : @Html.DisplayFor(modelItem => item.product_quantity)</p>
+
+                        <a asp-action="Edit" asp-controller="item_detail" asp-route-id="@item.product_id" class="btn btn-primary">Edit</a> |
+                        <a asp-action="Details" asp-controller="item_detail" asp-route-id="@item.product_id" class="btn btn-primary">Details</a> |
+                        <a asp-action="Delete" asp-controller="item_detail" asp-route-id="@item.product_id" class="btn btn-danger">Delete</a>
+
+                    </div>
+                </div>
+            </div>
+
+            i++;
+
+        }

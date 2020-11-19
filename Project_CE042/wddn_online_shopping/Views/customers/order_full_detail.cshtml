@@ -1,0 +1,72 @@
+﻿
+@{
+    ViewData["Title"] = "order_full_detail";
+}
+@{
+String product_image_path=null;
+}
+<h1>Order</h1>
+<div>
+    <h4>Order</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            Product image
+        </dt>
+        <dd class="col-sm-10">
+            @{
+                product_image_path = "/product_image/" + @ViewBag.item_detail.product_image;
+            }
+            <img class="card-img-top" style="height:200px;width:200px" src="@product_image_path" alt="Card image cap">
+
+        </dd>
+        <dt class="col-sm-2">
+            Product name
+        </dt>
+        <dd class="col-sm-10">
+            @ViewBag.item_detail.product_name
+        </dd>
+
+        <dt class="col-sm-2">
+            Product Price
+        </dt>
+        <dd class="col-sm-10">
+            @ViewBag.item_detail.product_price
+        </dd>
+        <dt class="col-sm-2">
+            Seller name
+        </dt>
+        <dd class="col-sm-10">
+            @ViewBag.seller_detail.seller_name
+        </dd>
+        <dt class="col-sm-2">
+            Order Date
+        </dt>
+        <dd class="col-sm-10">
+            @ViewBag.order_detail.order_date
+        </dd>
+        <dt class="col-sm-2">
+            Delerver date
+        </dt>
+        <dd class="col-sm-10">
+            @ViewBag.order_detail.delivery_date
+        </dd>
+        <dt class="col-sm-2">
+            Product name
+        </dt>
+        <dd class="col-sm-10">
+            @ViewBag.item_detail.product_price
+        </dd>
+        <dt class="col-sm-2">
+            Seller email
+        </dt>
+        <dd class="col-sm-10">
+            @ViewBag.seller_detail.seller_email
+        </dd>
+    </dl>
+
+    
+    <a asp-controller="customers"  asp-action="order_detail" type="submit" value="Back to List" class="btn btn-success"> Back to List</a>
+        
+    
+</div>

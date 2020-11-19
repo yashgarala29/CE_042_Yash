@@ -1,0 +1,15 @@
+﻿@{
+    var requestedController = ViewContext.RouteData.Values["controller"].ToString();
+    switch (requestedController)
+    {
+        case "sellers":
+            Layout = "_Layout1";
+            break;
+        case "customers":
+            Layout = "_Layout";
+            break;
+        default:
+            Layout = "_Layout";
+            break;
+    }
+}

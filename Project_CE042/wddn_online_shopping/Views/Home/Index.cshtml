@@ -1,0 +1,34 @@
+﻿@model IEnumerable<wddn_online_shopping.Models.model_class.item_detail>
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+@{
+    var i = 0;
+}
+
+<div class="container">
+    @foreach (var item in Model)
+    {
+        var product_image_path = "/product_image/" + item.product_image;
+
+        @if(item.product_quantity >0)
+        { 
+    <div style="display:inline-block">
+        <div class="card" style="width: 18rem;">
+            <img class="card-img-top" src="@product_image_path" alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">@Html.DisplayFor(modelItem => item.product_name)</h5>
+                <p class="card-text"> @Html.DisplayNameFor(model => model.product_price) : @Html.DisplayFor(modelItem => item.product_price)</p>
+                |
+                <a asp-action="item_detail" asp-controller="customers" asp-route-id="@item.product_id" class="btn btn-primary">Details</a> |
+                <a asp-action="Buy" asp-route-id="@item.product_id" class="btn btn-primary">Buy</a>
+
+            </div>
+        </div>
+    </div>
+
+            i++;
+        }
+    }
