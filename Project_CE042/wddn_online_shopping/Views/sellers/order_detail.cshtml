@@ -1,14 +1,11 @@
 ﻿@model IEnumerable<wddn_online_shopping.Models.model_class.order>
 
+@Html.Partial("_partial_view", "seller");
+
 @{
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
-
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
 <table class="table">
     <thead>
         <tr>
@@ -44,7 +41,7 @@
                 </td>
                 <td>
                     <a asp-action="order_full_detail" asp-controller="sellers" asp-route-id="@item.order_id">Details</a> |
-                   </td>
+                </td>
             </tr>
         }
     </tbody>

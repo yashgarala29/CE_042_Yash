@@ -4,9 +4,11 @@
     ViewData["Title"] = "Home Page";
 }
 
+@Html.Partial("_partial_view", "seller");
 @{
     var i = 0;
     String border_color;
+
 }
 
 <div class="container">
@@ -46,3 +48,4 @@
             i++;
 
         }
+</div>

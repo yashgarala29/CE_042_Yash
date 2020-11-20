@@ -208,9 +208,6 @@ E:\SEM 5\WDDN\A WDDN ONLINE SHOPPING\wddn_online_shopping\bin\Debug\netcoreapp3.
 E:\SEM 5\WDDN\A WDDN ONLINE SHOPPING\wddn_online_shopping\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_Layout1.cshtml.g.cs
 E:\SEM 5\WDDN\A WDDN ONLINE SHOPPING\wddn_online_shopping\obj\Debug\netcoreapp3.1\Razor\Views\sellers\Homepage.cshtml.g.cs
 E:\SEM 5\WDDN\A WDDN ONLINE SHOPPING\wddn_online_shopping\obj\Debug\netcoreapp3.1\Razor\Views\sellers\Login_seller.cshtml.g.cs
-E:\SEM 5\WDDN\A WDDN ONLINE SHOPPING\wddn_online_shopping\obj\Debug\netcoreapp3.1\wddn_online_shopping.csproj.CoreCompileInputs.cache
-E:\SEM 5\WDDN\A WDDN ONLINE SHOPPING\wddn_online_shopping\obj\Debug\netcoreapp3.1\wddn_online_shopping.MvcApplicationPartsAssemblyInfo.cs
-E:\SEM 5\WDDN\A WDDN ONLINE SHOPPING\wddn_online_shopping\obj\Debug\netcoreapp3.1\wddn_online_shopping.MvcApplicationPartsAssemblyInfo.cache
 E:\SEM 5\WDDN\A WDDN ONLINE SHOPPING\wddn_online_shopping\obj\Debug\netcoreapp3.1\Razor\Views\Home\buy.cshtml.g.cs
 E:\SEM 5\WDDN\A WDDN ONLINE SHOPPING\wddn_online_shopping\obj\Debug\netcoreapp3.1\Razor\Views\sellers\order_detail.cshtml.g.cs
 E:\SEM 5\WDDN\A WDDN ONLINE SHOPPING\wddn_online_shopping\obj\Debug\netcoreapp3.1\Razor\Views\sellers\order_full_detail.cshtml.g.cs
@@ -218,3 +215,7 @@ E:\SEM 5\WDDN\A WDDN ONLINE SHOPPING\wddn_online_shopping\obj\Debug\netcoreapp3.
 E:\SEM 5\WDDN\A WDDN ONLINE SHOPPING\wddn_online_shopping\obj\Debug\netcoreapp3.1\Razor\Views\customers\order_full_detail.cshtml.g.cs
 E:\SEM 5\WDDN\A WDDN ONLINE SHOPPING\wddn_online_shopping\obj\Debug\netcoreapp3.1\Razor\Views\customers\item_detail.cshtml.g.cs
 E:\SEM 5\WDDN\A WDDN ONLINE SHOPPING\wddn_online_shopping\obj\Debug\netcoreapp3.1\Razor\Views\customer_cart_item\View.cshtml.g.cs
+E:\SEM 5\WDDN\A WDDN ONLINE SHOPPING\wddn_online_shopping\obj\Debug\netcoreapp3.1\wddn_online_shopping.csproj.CoreCompileInputs.cache
+E:\SEM 5\WDDN\A WDDN ONLINE SHOPPING\wddn_online_shopping\obj\Debug\netcoreapp3.1\wddn_online_shopping.MvcApplicationPartsAssemblyInfo.cs
+E:\SEM 5\WDDN\A WDDN ONLINE SHOPPING\wddn_online_shopping\obj\Debug\netcoreapp3.1\wddn_online_shopping.MvcApplicationPartsAssemblyInfo.cache
+E:\SEM 5\WDDN\A WDDN ONLINE SHOPPING\wddn_online_shopping\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_partial_view.cshtml.g.cs

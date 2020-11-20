@@ -23,7 +23,18 @@ namespace wddn_online_shopping
         // GET: customer_cart_item
         public async Task<IActionResult> Index()
         {
-            int customer_id= (int)HttpContext.Session.GetInt32("customer_id");
+            //int customer_id= (int)HttpContext.Session.GetInt32("customer_id");
+            //int customer_id = Int32.Parse(Request.Cookies["customer_id"].ToString());
+            int customer_id = -1;
+            //var seller_id = HttpContext.Session.GetInt32("seller_id");
+
+            string co = Request.Cookies["customer_id"];
+            if (co == null)
+            {
+                co = "-1";
+            }
+            customer_id = Int32.Parse(co);
+
             var cart_item = _context.cart_Items.Where(c => c.customer_cart_id == customer_id).ToList();
             int total_price = 0;
             List<item_detail> produc_in_cart=new List<item_detail>();
@@ -42,7 +53,8 @@ namespace wddn_online_shopping
         
         public async Task<IActionResult> placer_order()
         {
-            int customer_id = (int)HttpContext.Session.GetInt32("customer_id");
+            //int customer_id = (int)HttpContext.Session.GetInt32("customer_id");
+            int customer_id = Int32.Parse(Request.Cookies["customer_id"].ToString());
             var cart_item = _context.cart_Items.Where(c => c.customer_cart_id == customer_id).ToList();
             foreach (var c in cart_item)
             {
@@ -61,9 +73,9 @@ namespace wddn_online_shopping
         public async Task Update_order_detail(int id)
         {
             var item_detail = await _context.item_Details.FindAsync(id);
-            var customer_id = HttpContext.Session.GetInt32("customer_id");
+            //var customer_id = HttpContext.Session.GetInt32("customer_id");
+            int customer_id = Int32.Parse(Request.Cookies["customer_id"].ToString());
 
-            
             int quentity = item_detail.product_quantity - 1;
             var item = await _context.item_Details.FindAsync(id);
             item.product_quantity = quentity;

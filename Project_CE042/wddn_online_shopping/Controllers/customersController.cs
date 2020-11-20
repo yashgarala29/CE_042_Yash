@@ -54,7 +54,20 @@ namespace wddn_online_shopping
         
         public async Task<RedirectResult> add_to_cart(int id)
         {
-            int customer_id = (int)HttpContext.Session.GetInt32("customer_id");
+            //int customer_id = (int)HttpContext.Session.GetInt32("customer_id");
+            //int customer_id = Int32.Parse(Request.Cookies["customer_id"].ToString());
+            string co = Request.Cookies["customer_id"];
+            if (co == null)
+            {
+                co = "-1";
+            }
+            int customer_id = Int32.Parse(co);
+            if(customer_id == -1)
+            {
+                string redirect_url1 = "https://localhost:44326/customers/login_customer/";
+                return Redirect(redirect_url1);
+
+            }
             customer_cart_item customer_Cart_Item = new customer_cart_item
             {
                 customer_cart_id = customer_id,
@@ -86,6 +99,10 @@ namespace wddn_online_shopping
                 {
                     int id = await getuserAsync(model.customer_email);
                     HttpContext.Session.SetInt32("customer_id", id);
+                    CookieOptions cookie = new CookieOptions();
+                    cookie.Expires = DateTime.Now.AddDays(365);
+                    Response.Cookies.Append("customer_id", id.ToString());
+                    Response.Cookies.Append("roll", "customer");
 
                     return RedirectToAction("index", "home");
                 }
@@ -102,7 +119,14 @@ namespace wddn_online_shopping
         }
         public IActionResult order_detail()
         {
-            var customer_id = HttpContext.Session.GetInt32("customer_id");
+            //var customer_id = HttpContext.Session.GetInt32("customer_id");
+            //int customer_id = Int32.Parse(Request.Cookies["customer_id"].ToString());
+            string co = Request.Cookies["customer_id"];
+            if (co == null)
+            {
+                co = "-1";
+            }
+            int customer_id = Int32.Parse(co);
 
             var Model = _context.order.Where(m => m.customer_id == customer_id).ToList();
 
@@ -110,7 +134,15 @@ namespace wddn_online_shopping
         }
         public IActionResult order_full_detail(int id)
         {
-            var seller_id = HttpContext.Session.GetInt32("customer_id");
+            //var seller_id = HttpContext.Session.GetInt32("customer_id");
+            //int seller_id = Int32.Parse(Request.Cookies["customer_id"].ToString());
+            string co = Request.Cookies["customer_id"];
+            if (co == null)
+            {
+                co = "-1";
+            }
+           int  seller_id = Int32.Parse(co);
+
             var Model = _context.order.Where(m => m.order_id == id).FirstOrDefault();
             System.Diagnostics.Debug.WriteLine("Model.seller_id" + Model.seller_id);
             ViewBag.seller_detail = _context.sellers.Where(m => m.seller_id == Model.seller_id).FirstOrDefault();
@@ -194,6 +226,10 @@ namespace wddn_online_shopping
                     int id = await getuserAsync(customer.customer_email);
                     HttpContext.Session.SetInt32("customer_id", id);
 
+                    CookieOptions cookie = new CookieOptions();
+                    cookie.Expires = DateTime.Now.AddDays(365);
+                    Response.Cookies.Append("customer_id", id.ToString());
+                    Response.Cookies.Append("roll", "customer");
 
 
                     await signInManager.SignInAsync(user, isPersistent: false);
@@ -212,6 +248,9 @@ namespace wddn_online_shopping
         public async Task<IActionResult> Logout()
         {
             await signInManager.SignOutAsync();
+
+            Response.Cookies.Delete("customer_id");
+            Response.Cookies.Delete("roll");
             return RedirectToAction("index", "home");
         }
 

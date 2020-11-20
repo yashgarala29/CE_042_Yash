@@ -1,5 +1,9 @@
 ﻿<!DOCTYPE html>
 @inject SignInManager<customer_identity> signinmanager
+@inject UserManager<customer_identity> usemanager
+@{ 
+   string roll="";
+}
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -20,7 +24,7 @@
         <br><hr>
         <a class="nav-link " asp-controller="customers" asp-action="order_detail">My Order</a>
         <br><hr>
-        <a class="nav-link " asp-controller="sellers" asp-action="Create">My Profile</a>
+        @*<a class="nav-link " asp-controller="sellers" asp-action="Create">My Profile</a>*@
 
     </div>
     <header>
@@ -30,21 +34,29 @@
             <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
                 <ul class="navbar-nav flex-grow-1">
                     <li class="nav-item">
-                        <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                        @*<a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">Home</a>*@
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                        @*<a class="nav-link" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>*@
                     </li>
                 </ul>
 
                 <ul class="navbar-nav">
-                    @if (signinmanager.IsSignedIn(User))
+                    @{ 
+                        if(signinmanager.IsSignedIn(User))
+                        {
+
+                            roll = usemanager.Users.Where(x => x.UserName == User.Identity.Name).FirstOrDefault().account_type.ToString();
+                        }
+                    }
+
+                    @if (signinmanager.IsSignedIn(User) && roll=="customer")
                     {
                         <li class="nav-item">
                             <a class="nav-link " asp-area="" asp-page="" title="Manage">Hello @User.Identity.Name</a>
                         </li>
                         <li class="nav-item">
-                            <form class="form-inline"  asp-controller="customers" asp-action="Logout" >
+                            <form class="form-inline" asp-controller="customers" asp-action="Logout">
                                 <button type="submit" class="nav-link btn btn-link ">Logout</button>
                             </form>
                         </li>
@@ -56,7 +68,7 @@
                             <a class="nav-link " asp-controller="customers" asp-action="Create">Register</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link "  asp-controller="customers" asp-action="login_customer">Login</a>
+                            <a class="nav-link " asp-controller="customers" asp-action="login_customer">Login</a>
                         </li>
                     }
                 </ul>
@@ -68,9 +80,9 @@
         <main role="main" class="pb-3">
             @RenderBody()
             @*@if (IsSectionDefined("Scripts"))
-            {
-                @RenderSection("Scripts", required: false)
-            }*@
+                {
+                    @RenderSection("Scripts", required: false)
+                }*@
         </main>
 
     </div>

@@ -1,0 +1,34 @@
+﻿@inject SignInManager<customer_identity> signinmanager
+@inject UserManager<customer_identity> usemanager
+@{
+    string roll = "";
+}
+@{
+    if (signinmanager.IsSignedIn(User))
+    {
+
+        roll = usemanager.Users.Where(x => x.UserName == User.Identity.Name).FirstOrDefault().account_type.ToString();
+    }
+}
+
+@if (signinmanager.IsSignedIn(User) && Model == roll)
+{
+
+}
+else
+{
+    if (Model == "customer")
+    {
+        <script type="text/javascript">
+            window.location.href = "@Url.Action("login_customer", "customers")";
+        </script>
+    }
+    else if (Model == "seller")
+    {
+
+        <script type="text/javascript">
+            window.location.href = "@Url.Action("login_seller", "sellers")";
+        </script>
+    }
+
+}

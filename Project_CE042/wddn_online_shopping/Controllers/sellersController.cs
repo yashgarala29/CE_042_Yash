@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Hosting;
+﻿
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -31,9 +32,18 @@ namespace wddn_online_shopping
             this.hostingEnvironment = webHostEnvironment;
         }
         //HomePage
+        
         public IActionResult HomePage()
         {
-            var seller_id = HttpContext.Session.GetInt32("seller_id");
+            int seller_id = -1;
+            //var seller_id = HttpContext.Session.GetInt32("seller_id");
+
+            string c = Request.Cookies["seller_id"];
+            if (c == null)
+            {
+                c = "-1";
+            }
+            seller_id = Int32.Parse(c);
 
             var Model = _context.item_Details.Where(m => m.seller_id == seller_id).ToList();
 
@@ -41,7 +51,14 @@ namespace wddn_online_shopping
         }
         public IActionResult order_detail()
         {
-            var seller_id = HttpContext.Session.GetInt32("seller_id");
+            //var seller_id = HttpContext.Session.GetInt32("seller_id");
+            //int seller_id = Int32.Parse(Request.Cookies["seller_id"].ToString());
+            string co = Request.Cookies["seller_id"];
+            if (co == null)
+            {
+                co = "-1";
+            }
+            int seller_id = Int32.Parse(co);
 
             var Model = _context.order.Where(m => m.seller_id == seller_id).ToList();
 
@@ -49,7 +66,16 @@ namespace wddn_online_shopping
         }
         public IActionResult order_full_detail(int id)
         {
-            var seller_id = HttpContext.Session.GetInt32("seller_id");
+            //var seller_id = HttpContext.Session.GetInt32("seller_id");
+            //int seller_id = Int32.Parse(Request.Cookies["seller_id"].ToString());
+            string co = Request.Cookies["seller_id"];
+            if (co == null)
+            {
+                co = "-1";
+            }
+            int seller_id = Int32.Parse(co);
+
+
             var Model =  _context.order.Where(m => m.order_id == id).FirstOrDefault();
             System.Diagnostics.Debug.WriteLine("Model.seller_id" + Model.seller_id);  
             ViewBag.seller_detail= _context.sellers.Where(m => m.seller_id==Model.seller_id).FirstOrDefault();
@@ -83,6 +109,10 @@ namespace wddn_online_shopping
                 {
                     int id = await getuserAsync(model.seller_email);
                     HttpContext.Session.SetInt32("seller_id", id);
+                    CookieOptions cookie = new CookieOptions();
+                    cookie.Expires = DateTime.Now.AddDays(365);
+                    Response.Cookies.Append("seller_id", id.ToString());
+                    Response.Cookies.Append("roll", "seller");
 
                     return RedirectToAction("Homepage", "sellers");
                 }
@@ -94,6 +124,8 @@ namespace wddn_online_shopping
         [HttpPost]
         public async Task<IActionResult> Logout()
         {
+            Response.Cookies.Delete("seller_id");
+            Response.Cookies.Delete("roll");
             await signInManager.SignOutAsync();
             return RedirectToAction("Homepage", "sellers");
         }
@@ -180,6 +212,10 @@ namespace wddn_online_shopping
                     await signInManager.SignInAsync(user, isPersistent: false);
                     int id = await getuserAsync(seller.seller_email);
                     HttpContext.Session.SetInt32("seller_id", id);
+                    CookieOptions cookie = new CookieOptions();
+                    cookie.Expires = DateTime.Now.AddDays(365);
+                    Response.Cookies.Append("seller_id", id.ToString());
+                    Response.Cookies.Append("roll", "seller");
 
                     return RedirectToAction("Homepage", "sellers");
 

@@ -28,8 +28,8 @@ namespace wddn_online_shopping
         public async Task<IActionResult> place_order(int  id)
         {
             var item_detail = await _context.item_Details.FindAsync(id);
-            var customer_id= HttpContext.Session.GetInt32("customer_id");
-
+            //var customer_id= HttpContext.Session.GetInt32("customer_id");
+            int customer_id = Int32.Parse(Request.Cookies["customer_id"].ToString());
             if (item_detail == null)
             {
                 return NotFound();
@@ -109,7 +109,8 @@ namespace wddn_online_shopping
 
             if (ModelState.IsValid)
             {
-                int seller_id = (int)HttpContext.Session.GetInt32("seller_id");
+                //int seller_id = (int)HttpContext.Session.GetInt32("seller_id");
+                int seller_id = Int32.Parse(Request.Cookies["seller_id"].ToString());
                 System.Diagnostics.Debug.WriteLine("seller.seller_image.FileName" + seller_id);
 
                 String uniqefileName = null;

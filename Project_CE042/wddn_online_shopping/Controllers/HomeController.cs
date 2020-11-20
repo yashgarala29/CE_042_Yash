@@ -3,10 +3,13 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using wddn_online_shopping.Models;
+using wddn_online_shopping.Models.additional_field;
 using wddn_online_shopping.Models.context_class;
 
 namespace wddn_online_shopping.Controllers
@@ -15,16 +18,17 @@ namespace wddn_online_shopping.Controllers
     {
         private readonly ILogger<HomeController> _logger;
         private readonly AppDbContext _context;
-
+        private readonly SignInManager<customer_identity> signinmanager;
 
 
         public HomeController(ILogger<HomeController> logger, AppDbContext context)
         {
             _logger = logger;
             _context = context;
+            
 
         }
-
+        
         public async Task<IActionResult> Index()
         {
             return View(await _context.item_Details.ToListAsync());

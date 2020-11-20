@@ -1,9 +1,11 @@
 ﻿
+@Html.Partial("_partial_view", "seller");
+
 @{
     ViewData["Title"] = "order_full_detail";
 }
 @{
-String product_image_path=null;
+    String product_image_path = null;
 }
 <h1>Order</h1>
 <div>
@@ -65,8 +67,8 @@ String product_image_path=null;
         </dd>
     </dl>
 
-    
-    <a asp-controller="sellers"  asp-action="order_detail" type="submit" value="Back to List" class="btn btn-success"> Back to List</a>
-        
-    
+
+    <a asp-controller="sellers" asp-action="order_detail" type="submit" value="Back to List" class="btn btn-success"> Back to List</a>
+
+
 </div>

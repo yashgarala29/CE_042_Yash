@@ -2,12 +2,13 @@
 
 @{
     ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout1.cshtml";
 }
 
 <h1>Details</h1>
 
 <div>
-    <h4>item_detail</h4>
+    <h4>Item Detail</h4>
     <hr />
     <dl class="row">
         <dt class="col-sm-2">
@@ -46,6 +47,6 @@
     </dl>
 </div>
 <div>
-    <a asp-action="Edit" asp-route-id="@Model.product_id">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Edit" asp-route-id="@Model.product_id" class="btn btn-success">Edit</a> |
+    <a asp-controller="sellers" asp-action="Homepage" class="btn btn-success" >Back to List</a>
 </div>

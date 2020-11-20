@@ -1,5 +1,9 @@
 ﻿<!DOCTYPE html>
 @inject SignInManager<customer_identity> signinmanager
+@inject UserManager<customer_identity> usemanager
+@{
+    string roll = "";
+}
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -23,19 +27,28 @@
     <header>
         <nav class="navbar navbar-expand-sm navbar1">
             <span style="color:white;font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
-            <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">All Shopping<div style="font-size:10px">Seller</div></a>
+            <a class="navbar-brand" asp-controller="sellers" asp-action="HomePage">All Shopping<div style="font-size:10px">Seller</div></a>
             <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
                 <ul class="navbar-nav flex-grow-1">
                     <li class="nav-item">
-                        <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                       @* <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">Home</a>*@
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                        @*<a class="nav-link" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>*@
                     </li>
                 </ul>
 
                 <ul class="navbar-nav">
-                    @if (signinmanager.IsSignedIn(User))
+                    @{
+                        if (signinmanager.IsSignedIn(User))
+                        {
+
+                            roll = usemanager.Users.Where(x => x.UserName == User.Identity.Name).FirstOrDefault().account_type.ToString();
+                        }
+                    }
+
+
+                    @if (signinmanager.IsSignedIn(User) && roll == "seller")
                     {
                         <li class="nav-item">
                             <a class="nav-link " asp-area="" asp-page="" title="Manage">Hello @User.Identity.Name</a>
